@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    [Header("bools")]
-    [SerializeField] public bool nearCloset;
+    [Header("Bools")]
+    [SerializeField] public bool nearCloset = false;
+    [SerializeField] public bool inCloset;
 
-    [Header("sound")]
+    [Header("Variables")]
+    [SerializeField] Vector3 closetAnimationPosition;
+
+    [Header("Sound")]
     [SerializeField] AudioClip getInClosetSFX;
+
+    [Header("GameObjects")]
+    [SerializeField] GameObject closet;
 
     void Start()
     {
@@ -22,23 +29,43 @@ public class Interaction : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.tag == "player" /*&& nearCloset == false*/)
         {
             nearCloset = true;
         }
         
     }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "player")
+        {
+            Debug.Log("nearcloset was turned false");
+            nearCloset = false;
+        }
+    }
 
     public void GetInCloset()
     {
-        if (Input.GetKeyDown("e") && nearCloset == true)
+        if (Input.GetKeyDown("e") && nearCloset == true && inCloset == false)
         {
             Debug.Log("e was pressed");
+            GameObject closetThing = Instantiate(closet, closetAnimationPosition, transform.rotation);
+            inCloset = true;
             //AudioManager.instance.PlayClip(getInClosetSFX);
         }
         
             
         
+    }
+
+    public bool GetClosetBool()
+    {
+        return inCloset;
+    }
+
+    public bool NearClosetBool()
+    {
+        return nearCloset;
     }
 
 }

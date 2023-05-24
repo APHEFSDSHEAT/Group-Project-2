@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629772468717600305}
   - component: {fileID: 1629772468717600306}
-  - component: {fileID: 4255049121002710819}
+  - component: {fileID: 2890585872506996018}
   m_Layer: 0
   m_Name: closet door template
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4255049121002710819
+--- !u!114 &2890585872506996018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,6 +93,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629772468717600307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07ca7b95d8e4ac3458a1dfa4a95c6ffb, type: 3}
+  m_Script: {fileID: 11500000, guid: 61395c0c5433da64babfecfa3220c7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

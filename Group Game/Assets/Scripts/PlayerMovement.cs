@@ -12,8 +12,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform feet;
     [SerializeField] public float sprintSpeed = 4f;
     [SerializeField] public float afterSprintSpeed = 2f;
-    [SerializeField] public float cooldown = 3f;
-    [SerializeField] public float sprintTime = 6f;
+    [SerializeField] public float sprintCooldown = 2f;
+    [SerializeField] public float sprintingTime = 4f;
+    bool sprintTimeCooldown = true;
+    bool sprintTime = false;
 
     float mx;
     bool isGrounded;
@@ -21,13 +23,35 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         mx = Input.GetAxis("Horizontal");
+
+        if (Input.GetButton("Run") && sprintTimeCooldown == true)
+        {
+            sprintTime = true;
+            sprintingTime -= Time.deltaTime;
+            if(sprintCooldown <= 0f)
+            {
+                speed = sprintSpeed;
+            }
+            if(sprintingTime <= 0f)
+            {
+                speed = afterSprintSpeed;
+            }
+        }
+        else if (Input.GetButtonUp("Run") && sprintTimeCooldown == true)
+        {
+            speed = afterSprintSpeed;
+            sprintTimeCooldown = false;
+            sprintCooldown = 2f;
+            sprintTime = false;
+            sprintingTime = 4f;
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -45,18 +69,18 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+
+        sprintCooldown -= Time.deltaTime;
+        if(sprintCooldown <= 0f)
+        {
+            sprintTimeCooldown = true;
+        }
     }
+
+
+
     public void FixedUpdate()
     {
-        if (Input.GetButton("Run"))
-        {
-            speed = sprintSpeed;
-        }
-        else if(Input.GetButtonUp("Run"))
-        {
-            speed = afterSprintSpeed;
-        }
-
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
     }
 

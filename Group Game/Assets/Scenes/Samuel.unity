@@ -317,8 +317,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1983226581325784080}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1983226581325784079
 PrefabInstance:
@@ -410,6 +410,14 @@ PrefabInstance:
     - target: {fileID: 2630807635113647082, guid: 0985dcbd415bd8141ae9afc32e61f6de, type: 3}
       propertyPath: jumpPower
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630807635113647082, guid: 0985dcbd415bd8141ae9afc32e61f6de, type: 3}
+      propertyPath: sprintingTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630807635113647082, guid: 0985dcbd415bd8141ae9afc32e61f6de, type: 3}
+      propertyPath: sprintCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2630807635113647082, guid: 0985dcbd415bd8141ae9afc32e61f6de, type: 3}
       propertyPath: groundLayer.m_Bits

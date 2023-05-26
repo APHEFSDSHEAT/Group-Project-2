@@ -5,22 +5,7 @@ using UnityEngine;
 public class Closet : MonoBehaviour
 {
     Interaction interaction;
-    private void Awake()
-    {
-        //SetupSingleton();
-    }
 
-    /*private void SetupSingleton()
-    {
-        if (FindObjectsOfType<Closet>().Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }*/
 
     public void GetOutOfCloset()
     {

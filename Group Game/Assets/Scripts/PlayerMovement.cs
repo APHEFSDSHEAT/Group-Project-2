@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] int health = 3;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] public float speed = 10f;
     [SerializeField] public float jumpPower = 15f;
@@ -101,6 +102,24 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer otherDamageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (otherDamageDealer == null) { return; }
+        ProcessHit(otherDamageDealer);
+    }
+
+    private void ProcessHit(DamageDealer otherDamageDealer)
+    {
+        health -= otherDamageDealer.GetDamage();
+        otherDamageDealer.Hit();
+        if (health <= 0)
+        {
+            FindObjectOfType<SceneLoader>().LoadLoseScene();
+            Destroy(gameObject);
         }
     }
 }

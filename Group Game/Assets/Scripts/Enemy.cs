@@ -27,10 +27,28 @@ public class Enemy : MonoBehaviour
             moveSpeed = -moveSpeed;
             FlipEnemyFacing();
         }
+        DamageDealer otherDamageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!otherDamageDealer) { return; }
+        ProcessHit(otherDamageDealer);
     }
 
     private void FlipEnemyFacing()
     {
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidbody.velocity.x)), 1f);
+    }
+
+    private void ProcessHit(DamageDealer otherDamageDealer)
+    {
+        health -= otherDamageDealer.GetDamage();
+        otherDamageDealer.Hit();
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

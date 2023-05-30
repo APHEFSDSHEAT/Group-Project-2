@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mx = Input.GetAxis("Horizontal");
+        mx = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButton("Run") && sprintTimeCooldown == true)
         {
@@ -61,16 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
         CheckGrounded();
 
-        if (rb.velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-
-        else if (rb.velocity.x > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-
         sprintCooldown -= Time.deltaTime;
         if(sprintCooldown <= 0f)
         {
@@ -83,6 +73,21 @@ public class PlayerMovement : MonoBehaviour
     public void FixedUpdate()
     {
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
+
+        if(mx != 0)
+        {
+            rb.AddForce(new Vector2(mx * speed, 0f));
+        }
+
+        if (mx > 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (mx < 0)
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     void Jump()

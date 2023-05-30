@@ -41,7 +41,7 @@ public class InteractionKey : MonoBehaviour
         {
             isInRange = true;
             collision.gameObject.GetComponent<PlayerKeyManaging>().NotifyPlayer();
-            Debug.Log("Player is now IN range");
+            //Debug.Log("Player is now IN range");
         }
     }
 
@@ -51,7 +51,7 @@ public class InteractionKey : MonoBehaviour
         {
             isInRange = false;
             collision.gameObject.GetComponent<PlayerKeyManaging>().DeNotifyPlayer();
-            Debug.Log("Player is now NOT in range");
+            //Debug.Log("Player is now NOT in range");
         }
     } 
 }

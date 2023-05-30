@@ -14,6 +14,7 @@ public class Key : MonoBehaviour
         {
             isOpen = true;
             Debug.Log("GetKey()");
+            Destroy(gameObject);
             //animator.SetBool("IsOpen", isOpen);
         }
     }

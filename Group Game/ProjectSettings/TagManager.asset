@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - player
+  - closet
   layers:
   - Default
   - TransparentFX

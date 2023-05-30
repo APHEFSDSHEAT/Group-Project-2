@@ -33,20 +33,29 @@ public class Interaction : MonoBehaviour
         if (collision.gameObject.tag == "player" /*&& nearCloset == false*/)
         {
             nearCloset = true;
-            collision.gameObject.GetComponent<ClosetNotifManaging>().NotifyPlayer();
             Debug.Log("nearCloset was turned true");
         }
-        
+
+        if (collision.gameObject.CompareTag("player")) // NOTIFICATION
+        {  
+            collision.gameObject.GetComponent<ClosetNotifManaging>().NotifyPlayer();
+        }
+
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "player")
         {
             nearCloset = false;
-            collision.gameObject.GetComponent<ClosetNotifManaging>().DeNotifyPlayer();
             Debug.Log("nearCloset was turned false");
         }
+
+        if (collision.gameObject.CompareTag("player"))
+        {
+            collision.gameObject.GetComponent<ClosetNotifManaging>().DeNotifyPlayer();
+        }
     }
+
 
     public void GetInCloset()
     {

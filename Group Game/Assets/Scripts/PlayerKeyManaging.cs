@@ -11,12 +11,12 @@ public class PlayerKeyManaging : MonoBehaviour
     public void PickupKey()
     {
         keyCount++;
-        Debug.Log("KeyCount++");
+        //Debug.Log("KeyCount++");
     }
     public void UseKey()
     {
         keyCount--;
-        Debug.Log("KeyCount--");
+        //Debug.Log("KeyCount--");
     }
 
     public void NotifyPlayer()

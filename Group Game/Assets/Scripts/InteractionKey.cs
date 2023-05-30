@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class InteractionKey : MonoBehaviour
 {
+
+    // THIS SCRIPT IS CHECKING IF THE PLAYER IS WITHIN RANGE OF THE DESIRED OBJECT (IN THIS CASE IS THE KEY)
+
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;

@@ -17,6 +17,7 @@ public class Interaction : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField] GameObject closet;
 
+
     void Start()
     {
         
@@ -32,6 +33,8 @@ public class Interaction : MonoBehaviour
         if (collision.gameObject.tag == "player" /*&& nearCloset == false*/)
         {
             nearCloset = true;
+            collision.gameObject.GetComponent<ClosetNotifManaging>().NotifyPlayer();
+            Debug.Log("nearCloset was turned true");
         }
         
     }
@@ -39,8 +42,9 @@ public class Interaction : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            Debug.Log("nearcloset was turned false");
             nearCloset = false;
+            collision.gameObject.GetComponent<ClosetNotifManaging>().DeNotifyPlayer();
+            Debug.Log("nearCloset was turned false");
         }
     }
 

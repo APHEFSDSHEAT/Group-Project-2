@@ -5,7 +5,7 @@ using UnityEngine;
 public class Key : MonoBehaviour
 {
     public bool isOpen;
-    public Animator animator;
+    //public Animator animator;
 
 
     public void GetKey()
@@ -13,8 +13,8 @@ public class Key : MonoBehaviour
         if (!isOpen)
         {
             isOpen = true;
-            Debug.Log("YOU NOW HAVE A KEY");
-            animator.SetBool("IsOpen", isOpen);
+            Debug.Log("GetKey()");
+            //animator.SetBool("IsOpen", isOpen);
         }
     }
 

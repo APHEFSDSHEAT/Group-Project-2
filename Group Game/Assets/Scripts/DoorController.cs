@@ -25,6 +25,7 @@ public class DoorController : MonoBehaviour
                     //animator.SetBool("IsOpen", isOpen);
                     //AudioSource.PlayClipAtPoint(soundEffect, transform.position);
                     Debug.Log("Door is unlocked");
+                    StartCoroutine(Teleport());
                 }
             }
         }
@@ -33,6 +34,12 @@ public class DoorController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
        
+    }
+    IEnumerator Teleport()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
 }

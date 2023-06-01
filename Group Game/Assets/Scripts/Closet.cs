@@ -11,12 +11,19 @@ public class Closet : MonoBehaviour
     {
         if (Input.GetKeyDown("e") && interaction.inCloset == true)
         {
-            Destroy(gameObject);
             interaction.inCloset = false;
+            StartCoroutine(waitAgain());
+
         }
     }
 
+    IEnumerator waitAgain()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("destroyed");
+        Destroy(gameObject);
 
+    }
 
 
     // Start is called before the first frame update

@@ -5,13 +5,16 @@ using UnityEngine;
 public class ClosetNotifManaging : MonoBehaviour
 {
     public GameObject closetInteractionNotification;
+
     public void NotifyPlayer()
     {
         closetInteractionNotification.SetActive(true);
+
     }
     public void DeNotifyPlayer()
     {
         closetInteractionNotification.SetActive(false);
+
     }
     // Start is called before the first frame update
     void Start()

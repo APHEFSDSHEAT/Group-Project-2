@@ -10,12 +10,15 @@ public class Interaction : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] Vector3 closetAnimationPosition;
+    [SerializeField] Vector3 infoPosition;
 
     [Header("Sound")]
     [SerializeField] AudioClip getInClosetSFX;
 
     [Header("GameObjects")]
     [SerializeField] GameObject closet;
+    [SerializeField] GameObject getOutInfo;
+
 
 
     void Start()
@@ -50,7 +53,7 @@ public class Interaction : MonoBehaviour
             Debug.Log("nearCloset was turned false");
         }
 
-        if (collision.gameObject.CompareTag("player"))
+        if (collision.gameObject.CompareTag("player")) // NOTIFICATION
         {
             collision.gameObject.GetComponent<ClosetNotifManaging>().DeNotifyPlayer();
         }
@@ -61,14 +64,20 @@ public class Interaction : MonoBehaviour
     {
         if (Input.GetKeyDown("e") && nearCloset == true && inCloset == false)
         {
-            Debug.Log("e was pressed");
-            GameObject closetThing = Instantiate(closet, closetAnimationPosition, transform.rotation);
             inCloset = true;
-            //AudioManager.instance.PlayClip(getInClosetSFX);
-        }
-        
             
-        
+        }
+       
+    }
+
+    IEnumerator waitNow()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("e was pressed");
+        GameObject closetThing = Instantiate(closet, closetAnimationPosition, transform.rotation);
+        GameObject getOut = Instantiate(getOutInfo, infoPosition, transform.rotation);
+        StartCoroutine(waitNow());
+        //AudioManager.instance.PlayClip(getInClosetSFX);
     }
 
     public bool GetClosetBool()

@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float sprintingTime = 4f;
     bool sprintTimeCooldown = true;
     bool sprintTime = false;
+    public Animator animator;
 
     float mx;
     bool isGrounded;
@@ -30,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("speed", Mathf.Abs(mx));
+
         mx = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButton("Run") && sprintTimeCooldown == true)

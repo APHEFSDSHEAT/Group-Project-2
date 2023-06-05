@@ -59,7 +59,6 @@ public class Interaction : MonoBehaviour
         }
     }
 
-
     public void GetInCloset()
     {
         if (Input.GetKeyDown("e") && nearCloset == true && inCloset == false)

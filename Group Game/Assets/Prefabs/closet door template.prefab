@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2890585872506996018}
   m_Layer: 0
   m_Name: closet door template
-  m_TagString: Untagged
+  m_TagString: closet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

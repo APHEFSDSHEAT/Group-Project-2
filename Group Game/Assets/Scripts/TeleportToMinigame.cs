@@ -30,7 +30,7 @@ public class TeleportToMinigame : MonoBehaviour
     {
         if (isOpen == true)
         {
-            playerTest.transform.position = minigamePosition; //new Vector3(16.6f, -3.94f, -2f);
+            playerTest.transform.position = minigamePosition; //new Vector3(1000f, -3.62f, -2f);
             Debug.Log("teleport");
         }
     }

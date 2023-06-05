@@ -21,7 +21,7 @@ public class Closet : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         Debug.Log("destroyed");
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
     }
 

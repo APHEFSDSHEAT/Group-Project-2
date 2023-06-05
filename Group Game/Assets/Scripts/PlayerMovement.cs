@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float speed = 10f;
     [SerializeField] public float jumpPower = 15f;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] Transform feet;
+    //[SerializeField] Transform feet;
+    BoxCollider2D myFeetColliders;
     [SerializeField] public float sprintSpeed = 4f;
     [SerializeField] public float afterSprintSpeed = 2f;
     [SerializeField] public float sprintCooldown = 2f;
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        myFeetColliders = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -57,12 +58,13 @@ public class PlayerMovement : MonoBehaviour
             sprintingTime = 4f;
         }
 
+        CheckGrounded();
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
 
-        CheckGrounded();
+        
 
         sprintCooldown -= Time.deltaTime;
         if(sprintCooldown <= 0f)
@@ -103,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckGrounded()
     {
-        if (Physics2D.OverlapCircle(feet.position, 0.5f, groundLayer))
+        if (myFeetColliders.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             isGrounded = true;
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Interaction interaction;
     [SerializeField] int health = 3;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] public float speed = 10f;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        interaction = FindObjectOfType<Interaction>();
         myFeetColliders = GetComponent<BoxCollider2D>();
     }
 
@@ -34,7 +36,10 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("speed", Mathf.Abs(mx));
 
-        mx = Input.GetAxisRaw("Horizontal");
+        if (interaction.inCloset == false)
+        {
+            mx = Input.GetAxisRaw("Horizontal");
+        }
 
         if (Input.GetButton("Run") && sprintTimeCooldown == true)
         {
@@ -59,7 +64,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         CheckGrounded();
-        if (Input.GetButtonDown("Jump"))
+
+        if (Input.GetButtonDown("Jump") && interaction.inCloset == false)
         {
             Jump();
         }
@@ -77,9 +83,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        rb.velocity = new Vector2(mx * speed, rb.velocity.y);
+            rb.velocity = new Vector2(mx * speed, rb.velocity.y);
 
-        if(mx != 0)
+        if(mx != 0) 
         {
             rb.AddForce(new Vector2(mx * speed, 0f));
         }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+    // THIS SCRIPT HANDLES ALL THINGS RELATED TO THE HIDING CLOSET
+
     [Header("Bools")]
     [SerializeField] public bool nearCloset = false;
     [SerializeField] public bool inCloset;
@@ -17,7 +19,9 @@ public class Interaction : MonoBehaviour
 
     [Header("GameObjects")]
     [SerializeField] GameObject closet;
-    [SerializeField] GameObject getOutInfo;
+    //[SerializeField] GameObject getOutInfo;
+    public GameObject closetInteractionNotification;
+
 
 
 
@@ -37,12 +41,9 @@ public class Interaction : MonoBehaviour
         {
             nearCloset = true;
             Debug.Log("nearCloset was turned true");
+            NotifyPlayer();
         }
 
-        if (collision.gameObject.CompareTag("player")) // NOTIFICATION
-        {  
-            collision.gameObject.GetComponent<ClosetNotifManaging>().NotifyPlayer();
-        }
 
     }
     public void OnTriggerExit2D(Collider2D collision)
@@ -51,34 +52,47 @@ public class Interaction : MonoBehaviour
         {
             nearCloset = false;
             Debug.Log("nearCloset was turned false");
+            DeNotifyPlayer();
         }
 
-        if (collision.gameObject.CompareTag("player")) // NOTIFICATION
-        {
-            collision.gameObject.GetComponent<ClosetNotifManaging>().DeNotifyPlayer();
-        }
     }
 
     public void GetInCloset()
     {
         if (Input.GetKeyDown("e") && nearCloset == true && inCloset == false)
         {
-            inCloset = true;
-            
+
+            StartCoroutine(waitNow());
         }
        
     }
 
     IEnumerator waitNow()
     {
+        yield return new WaitForSeconds(2f);
+        inCloset = true;
         yield return new WaitForSeconds(0.2f);
         Debug.Log("e was pressed");
         GameObject closetThing = Instantiate(closet, closetAnimationPosition, transform.rotation);
-        GameObject getOut = Instantiate(getOutInfo, infoPosition, transform.rotation);
-        StartCoroutine(waitNow());
         //AudioManager.instance.PlayClip(getInClosetSFX);
+
+        //GameObject getOut = Instantiate(getOutInfo, infoPosition, transform.rotation);
+
     }
 
+
+    public void NotifyPlayer()
+    {
+        closetInteractionNotification.SetActive(true);
+        Debug.Log("notified player");
+
+    }
+    public void DeNotifyPlayer()
+    {
+        closetInteractionNotification.SetActive(false);
+        Debug.Log("DEnotified player");
+
+    }
     public bool GetClosetBool()
     {
         return inCloset;
@@ -88,5 +102,4 @@ public class Interaction : MonoBehaviour
     {
         return nearCloset;
     }
-
 }

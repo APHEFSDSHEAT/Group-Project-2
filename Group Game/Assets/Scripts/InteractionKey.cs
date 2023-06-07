@@ -6,11 +6,12 @@ using UnityEngine.Events;
 public class InteractionKey : MonoBehaviour
 {
 
-    // THIS SCRIPT IS CHECKING IF THE PLAYER IS WITHIN RANGE OF THE DESIRED OBJECT (IN THIS CASE IS THE KEY)
+    // THIS SCRIPT IS CHECKING IF THE PLAYER IS WITHIN RANGE OF THE DESIRED OBJECT (this script is just a gameobject attached as child)
 
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+    public GameObject interactionNotification;
 
 
 
@@ -40,7 +41,8 @@ public class InteractionKey : MonoBehaviour
         if (collision.gameObject.CompareTag("player"))
         {
             isInRange = true;
-            collision.gameObject.GetComponent<PlayerKeyManaging>().NotifyPlayer();
+            NotifyPlayer();
+            //collision.gameObject.GetComponent<PlayerKeyManaging>().NotifyPlayer();
             //Debug.Log("Player is now IN range");
         }
     }
@@ -50,8 +52,18 @@ public class InteractionKey : MonoBehaviour
         if (collision.gameObject.CompareTag("player"))
         {
             isInRange = false;
-            collision.gameObject.GetComponent<PlayerKeyManaging>().DeNotifyPlayer();
+            DeNotifyPlayer();
+            //collision.gameObject.GetComponent<PlayerKeyManaging>().DeNotifyPlayer();
             //Debug.Log("Player is now NOT in range");
         }
-    } 
+    }
+
+    public void NotifyPlayer()
+    {
+        interactionNotification.SetActive(true);
+    }
+    public void DeNotifyPlayer()
+    {
+        interactionNotification.SetActive(false);
+    }
 }

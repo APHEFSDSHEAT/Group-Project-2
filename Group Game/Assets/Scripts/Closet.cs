@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Closet : MonoBehaviour
 {
+    // THIS SCRIPT HANDLES GETTING OUT OF THE HIDING CLOSET (destruction of GameObject)
+
     Interaction interaction;
 
 
     public void GetOutOfCloset()
     {
-        if (Input.GetKeyDown("e") && interaction.inCloset == true)
+        if (Input.GetKeyDown("e"))
         {
-            interaction.inCloset = false;
+            
             StartCoroutine(waitAgain());
+            interaction.inCloset = false;
 
         }
     }
@@ -21,7 +24,7 @@ public class Closet : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         Debug.Log("destroyed");
-        //Destroy(gameObject);
+        Destroy(gameObject);
 
     }
 

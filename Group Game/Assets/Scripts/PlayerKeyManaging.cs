@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerKeyManaging : MonoBehaviour
 {
+    // SELF EXPLANATORY - ALL THINGS RELATED TO THE KEY
+
     public int keyCount;
-    public GameObject interactionNotification;
+    //public GameObject interactionNotification;
 
 
     public void PickupKey()
@@ -19,14 +21,14 @@ public class PlayerKeyManaging : MonoBehaviour
         //Debug.Log("KeyCount--");
     }
 
-    public void NotifyPlayer()
+    /*public void NotifyPlayer()
     {
         interactionNotification.SetActive(true);
     }
     public void DeNotifyPlayer()
     {
         interactionNotification.SetActive(false);
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()

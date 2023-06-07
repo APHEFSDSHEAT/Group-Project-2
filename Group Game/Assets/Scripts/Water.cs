@@ -23,16 +23,7 @@ public class Water : MonoBehaviour
     {
         if(collision.tag == "Timmy")
         {
-            SceneManager.LoadScene();
+            FindObjectOfType<SceneLoader>().LoadLoseScene();
         }
-
-        if(collison.tag == "Timmy")
-        {
-            SceneManager.LoadScene();
-        }
-
-
-
-
     }
 }

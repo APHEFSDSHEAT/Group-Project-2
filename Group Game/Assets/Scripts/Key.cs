@@ -5,6 +5,7 @@ using UnityEngine;
 public class Key : MonoBehaviour
 {
     public bool isOpen;
+    public AudioClip soundEffect;
     //public Animator animator;
 
 
@@ -14,6 +15,7 @@ public class Key : MonoBehaviour
         {
             isOpen = true;
             Debug.Log("GetKey()");
+            //AudioSource.PlayClipAtPoint(soundEffect, transform.position);
             Destroy(gameObject);
             //animator.SetBool("IsOpen", isOpen);
         }

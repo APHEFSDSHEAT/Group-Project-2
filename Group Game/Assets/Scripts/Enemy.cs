@@ -4,37 +4,26 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int health = 100;
-    [SerializeField] float moveSpeed = 1f;
-    Rigidbody2D myRigidbody;
+    [SerializeField] int health = 3;
+    [SerializeField] float deathTime = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        myRigidbody.velocity = new Vector2(moveSpeed, 0f);
+        Die();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Wall"))
-        {
-            moveSpeed = -moveSpeed;
-            FlipEnemyFacing();
-        }
         DamageDealer otherDamageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!otherDamageDealer) { return; }
         ProcessHit(otherDamageDealer);
-    }
-
-    private void FlipEnemyFacing()
-    {
-        transform.localScale = new Vector2(-(Mathf.Sign(myRigidbody.velocity.x)), 1f);
     }
 
     private void ProcessHit(DamageDealer otherDamageDealer)
@@ -49,6 +38,6 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, deathTime);
     }
 }

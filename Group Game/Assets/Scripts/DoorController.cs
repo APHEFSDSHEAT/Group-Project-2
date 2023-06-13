@@ -10,6 +10,7 @@ public class DoorController : MonoBehaviour
     public bool isOpen;
     //public Animator animator;
     public AudioClip soundEffect;
+    [SerializeField] int requiredKeys;
 
     public void OpenDoor(GameObject obj)
     {
@@ -18,7 +19,7 @@ public class DoorController : MonoBehaviour
             PlayerKeyManaging manager = obj.GetComponent<PlayerKeyManaging>();
             if (manager)
             {
-                if (manager.keyCount > 0)
+                if (manager.keyCount == requiredKeys)
                 {
                     isOpen = true;
                     manager.UseKey();

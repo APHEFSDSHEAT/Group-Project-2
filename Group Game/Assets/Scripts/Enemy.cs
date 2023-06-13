@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public EnemySpawning enemySpawning;
     [SerializeField] int health = 3;
     [SerializeField] float deathTime = 10f;
 
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Die();
+        enemySpawning = FindObjectOfType<EnemySpawning>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

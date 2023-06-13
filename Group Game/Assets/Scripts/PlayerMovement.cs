@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         otherDamageDealer.Hit();
         if (health <= 0)
         {
-            FindObjectOfType<SceneLoader>().LoadLoseScene();
+            FindObjectOfType<SceneLoader>().LoadLoseScreen();
             Destroy(gameObject);
         }
     }

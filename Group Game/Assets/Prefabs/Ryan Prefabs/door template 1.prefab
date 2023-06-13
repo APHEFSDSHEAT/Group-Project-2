@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 434099265729508489}
   - component: {fileID: 434099265729508494}
   m_Layer: 0
-  m_Name: door template
+  m_Name: door template 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

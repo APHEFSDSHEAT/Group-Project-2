@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96612a1786dd2524cb9ae476ed6777e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawning: {fileID: 0}
   health: 3
   deathTime: 10
 --- !u!114 &1617138334
@@ -171,7 +172,6 @@ GameObject:
   - component: {fileID: 3699650318002147945}
   - component: {fileID: 3699650318002147946}
   - component: {fileID: 3699650318002147927}
-  - component: {fileID: 3699650318002147926}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -278,17 +278,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 4179974107009707254, guid: 3e6cb850f3dcbdf4182c5779ac09d058, type: 3}
---- !u!114 &3699650318002147926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3699650318002147947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96612a1786dd2524cb9ae476ed6777e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  deathTime: 10

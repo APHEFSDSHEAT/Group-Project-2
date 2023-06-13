@@ -126,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
         DamageDealer otherDamageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (otherDamageDealer == null) { return; }
         ProcessHit(otherDamageDealer);
+
     }
 
     private void ProcessHit(DamageDealer otherDamageDealer)
@@ -134,8 +135,11 @@ public class PlayerMovement : MonoBehaviour
         otherDamageDealer.Hit();
         if (health <= 0)
         {
-            FindObjectOfType<SceneLoader>().LoadLoseScreen();
             Destroy(gameObject);
+            if (otherDamageDealer.tag == "")
+            {
+                FindObjectOfType<SceneLoader>().Drowning();
+            }
         }
     }
 }

@@ -26,15 +26,27 @@ public class EnemySpawning : MonoBehaviour
         {
             if (canSpawnEnemy == true)
             {
+                
                 EnemySpawner();
-                canSpawnEnemy = false;
             }
-            //if enemy is destroyed canSpawnEnemy = true
         }
     }
 
     void EnemySpawner()
     {
         Instantiate(enemy, enemyPos.position, enemyPos.rotation);
+        canSpawnEnemy = false;
+    }
+
+    
+    public void SpawnAnotherEnemy(float waitTime)
+    {
+        StartCoroutine(MakeEnemySpawnable(waitTime));
+    }
+
+    public IEnumerator MakeEnemySpawnable(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        canSpawnEnemy = true;
     }
 }

@@ -77,8 +77,13 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("4-4");
     }
 
-    public void LoadLoseScreen()
+    public void Drowning()
     {
-        SceneManager.LoadScene("LoseScreen");
+        SceneManager.LoadScene("DrownScene");
+    }
+
+    public void JumpsareMrTie()
+    {
+        SceneManager.LoadScene("JumpscareMrTie");
     }
 }

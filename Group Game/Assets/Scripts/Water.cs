@@ -23,7 +23,7 @@ public class Water : MonoBehaviour
     {
         if(collision.tag == "Timmy")
         {
-            FindObjectOfType<SceneLoader>().LoadLoseScreen();
+            FindObjectOfType<SceneLoader>().Drowning();
         }
     }
 }

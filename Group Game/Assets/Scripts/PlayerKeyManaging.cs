@@ -21,6 +21,11 @@ public class PlayerKeyManaging : MonoBehaviour
         //Debug.Log("KeyCount--");
     }
 
+    public int GetKeyCount()
+    {
+        return keyCount;
+    }
+
     /*public void NotifyPlayer()
     {
         interactionNotification.SetActive(true);

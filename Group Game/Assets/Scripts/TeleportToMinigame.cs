@@ -51,6 +51,7 @@ public class TeleportToMinigame : MonoBehaviour
                     //AudioSource.PlayClipAtPoint(soundEffect, transform.position);
                     Debug.Log("TeleportDoor is unlocked");
                     TeleportThePlayer();
+                    isOpen = false;
 
                 }
             }

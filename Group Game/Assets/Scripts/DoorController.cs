@@ -11,6 +11,7 @@ public class DoorController : MonoBehaviour
     //public Animator animator;
     public AudioClip soundEffect;
     [SerializeField] int requiredKeys;
+    [SerializeField] float timeUntillTeleport = 1.5f;
 
     public void OpenDoor(GameObject obj)
     {
@@ -19,7 +20,7 @@ public class DoorController : MonoBehaviour
             PlayerKeyManaging manager = obj.GetComponent<PlayerKeyManaging>();
             if (manager)
             {
-                if (manager.keyCount == requiredKeys)
+                if (manager.keyCount >= requiredKeys)
                 {
                     isOpen = true;
                     manager.UseKey();
@@ -30,15 +31,15 @@ public class DoorController : MonoBehaviour
                 }
             }
         }
-        else
+        /*else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        }*/
        
     }
     IEnumerator Teleport()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(timeUntillTeleport);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }

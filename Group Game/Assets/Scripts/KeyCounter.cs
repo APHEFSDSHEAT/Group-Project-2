@@ -19,4 +19,10 @@ public class KeyCounter : MonoBehaviour
     {
         keyCounterText.text = playerKeyManagingScript.GetKeyCount().ToString();
     }
+
+    public void UpdateText()
+    {
+        
+
+    }
 }

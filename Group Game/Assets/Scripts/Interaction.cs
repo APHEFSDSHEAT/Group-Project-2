@@ -13,6 +13,7 @@ public class Interaction : MonoBehaviour
     [Header("Variables")]
     [SerializeField] Vector3 closetAnimationPosition;
     [SerializeField] Vector3 infoPosition;
+    [SerializeField] float timeBeforeGettingIn;
 
     [Header("Sound")]
     [SerializeField] AudioClip getInClosetSFX;
@@ -69,7 +70,7 @@ public class Interaction : MonoBehaviour
 
     IEnumerator waitNow()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeBeforeGettingIn);
         inCloset = true;
         yield return new WaitForSeconds(0.2f);
         Debug.Log("e was pressed");

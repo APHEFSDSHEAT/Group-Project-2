@@ -6,7 +6,7 @@ public class PlayerKeyManaging : MonoBehaviour
 {
     // SELF EXPLANATORY - ALL THINGS RELATED TO THE KEY
 
-    public int keyCount;
+    [SerializeField] public int keyCount;
     //public GameObject interactionNotification;
 
 
@@ -23,7 +23,9 @@ public class PlayerKeyManaging : MonoBehaviour
 
     public int GetKeyCount()
     {
+        Debug.Log("returned keycount");
         return keyCount;
+        
     }
 
     /*public void NotifyPlayer()

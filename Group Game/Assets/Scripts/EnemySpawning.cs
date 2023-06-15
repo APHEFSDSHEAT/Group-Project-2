@@ -8,6 +8,8 @@ public class EnemySpawning : MonoBehaviour
     public Transform enemyPos;
     public bool canSpawnEnemy = true;
 
+    [SerializeField] AudioClip enemySpawnSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,6 @@ public class EnemySpawning : MonoBehaviour
         {
             if (canSpawnEnemy == true)
             {
-                
                 EnemySpawner();
             }
         }
@@ -36,6 +37,7 @@ public class EnemySpawning : MonoBehaviour
     {
         Instantiate(enemy, enemyPos.position, enemyPos.rotation);
         canSpawnEnemy = false;
+        //AudioManager.instance.PlayClip(enemySpawnSFX);
     }
 
     

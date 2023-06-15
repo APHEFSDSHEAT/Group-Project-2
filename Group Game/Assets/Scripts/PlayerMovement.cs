@@ -123,9 +123,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        DamageDealer otherDamageDealer = other.gameObject.GetComponent<DamageDealer>();
-        if (otherDamageDealer == null) { return; }
-        ProcessHit(otherDamageDealer);
+        if (interaction.inCloset == false)
+        {
+            DamageDealer otherDamageDealer = other.gameObject.GetComponent<DamageDealer>();
+            if (!otherDamageDealer) { return; }
+            ProcessHit(otherDamageDealer);
+        }
 
     }
 
@@ -136,10 +139,15 @@ public class PlayerMovement : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            if (otherDamageDealer.tag == "")
+            if (otherDamageDealer.tag == "Water")
             {
                 FindObjectOfType<SceneLoader>().Drowning();
             }
+            if (otherDamageDealer.tag == "Mr Tie")
+            {
+                FindObjectOfType<SceneLoader>().JumpsareMrTie();
+            }
+
         }
     }
 }

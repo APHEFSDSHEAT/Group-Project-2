@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - player
   - closet
+  - Water
+  - Mr Tie
   layers:
   - Default
   - TransparentFX

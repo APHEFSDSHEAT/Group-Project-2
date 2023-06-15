@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 731889233}
   - component: {fileID: 731889234}
   - component: {fileID: 731889235}
+  - component: {fileID: 1793435947}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ff3e06d6c0a634a9be890265789426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interaction: {fileID: 0}
   health: 3
   rb: {fileID: 4179974107009707240}
   speed: 2
@@ -209,7 +211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCount: 0
-  interactionNotification: {fileID: 4419250025597180271, guid: 9543b70a0fdbcb240b0f9128b45cf3a3, type: 3}
 --- !u!114 &731889235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,3 +224,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closetInteractionNotification: {fileID: 3386563400561432081, guid: 835c8764f5c477a4b8e9036666db3d20, type: 3}
+--- !u!114 &1793435947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179974107009707252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22263aa50d818884d9cfcb9d11c4b2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3

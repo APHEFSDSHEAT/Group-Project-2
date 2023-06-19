@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerKeyManaging : MonoBehaviour
 {
-    // SELF EXPLANATORY - ALL THINGS RELATED TO THE KEY
+    // SELF EXPLANATORY - EQUIPPED ON THE PLAYER TO CONTROL KEY
 
     [SerializeField] public int keyCount;
     //public GameObject interactionNotification;
@@ -23,7 +23,7 @@ public class PlayerKeyManaging : MonoBehaviour
 
     public int GetKeyCount()
     {
-        Debug.Log("returned keycount");
+        
         return keyCount;
         
     }

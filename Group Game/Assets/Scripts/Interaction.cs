@@ -12,7 +12,7 @@ public class Interaction : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] Vector3 closetAnimationPosition;
-    [SerializeField] Vector3 infoPosition;
+    //[SerializeField] Vector3 infoPosition;
     [SerializeField] float timeBeforeGettingIn;
 
     [Header("Sound")]
@@ -62,7 +62,7 @@ public class Interaction : MonoBehaviour
     {
         if (Input.GetKeyDown("e") && nearCloset == true && inCloset == false)
         {
-
+            AudioManager.instance.PlayClip(getInClosetSFX);
             StartCoroutine(waitNow());
         }
        
@@ -75,7 +75,6 @@ public class Interaction : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Debug.Log("e was pressed");
         GameObject closetThing = Instantiate(closet, closetAnimationPosition, transform.rotation);
-        //AudioManager.instance.PlayClip(getInClosetSFX);
 
         //GameObject getOut = Instantiate(getOutInfo, infoPosition, transform.rotation);
 

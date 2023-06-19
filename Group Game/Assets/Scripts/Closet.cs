@@ -7,22 +7,25 @@ public class Closet : MonoBehaviour
     // THIS SCRIPT HANDLES GETTING OUT OF THE HIDING CLOSET (destruction of GameObject)
 
     Interaction interaction;
+    [SerializeField] AudioClip getOutClosetSFX;
+    [SerializeField] float timeBeforeGettingOut;
 
 
     public void GetOutOfCloset()
     {
         if (Input.GetKeyDown("e"))
         {
-            
+            AudioManager.instance.PlayClip(getOutClosetSFX);
             StartCoroutine(waitAgain());
-            interaction.inCloset = false;
+            
 
         }
     }
 
     IEnumerator waitAgain()
     {
-        yield return new WaitForSeconds(0.2f);
+        interaction.inCloset = false;
+        yield return new WaitForSeconds(timeBeforeGettingOut);
         Debug.Log("destroyed");
         Destroy(gameObject);
 

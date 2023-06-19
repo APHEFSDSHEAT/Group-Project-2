@@ -48,7 +48,7 @@ public class TeleportToMinigame : MonoBehaviour
                     isOpen = true;
                     //manager.UseKey();
                     //animator.SetBool("IsOpen", isOpen);
-                    //AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+                    AudioManager.instance.PlayClip(soundEffect);
                     Debug.Log("TeleportDoor is unlocked");
                     TeleportThePlayer();
                     isOpen = false;

@@ -25,7 +25,7 @@ public class DoorController : MonoBehaviour
                     isOpen = true;
                     manager.UseKey();
                     //animator.SetBool("IsOpen", isOpen);
-                    //AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+                    AudioManager.instance.PlayClip(soundEffect);
                     Debug.Log("Door is unlocked");
                     StartCoroutine(Teleport());
                 }

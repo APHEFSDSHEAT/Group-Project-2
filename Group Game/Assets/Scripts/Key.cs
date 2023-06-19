@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class Key : MonoBehaviour // THIS SCRIPT IS ON THE KEY ITSELF - SELF EXPLANATORY
 {
     public bool isOpen;
-    public AudioClip soundEffect;
+    [SerializeField] AudioClip soundEffect;
     //public Animator animator;
 
 
@@ -15,6 +15,7 @@ public class Key : MonoBehaviour
         {
             isOpen = true;
             Debug.Log("GetKey()");
+            AudioManager.instance.PlayClip(soundEffect);
             //AudioSource.PlayClipAtPoint(soundEffect, transform.position);
             Destroy(gameObject);
             //animator.SetBool("IsOpen", isOpen);

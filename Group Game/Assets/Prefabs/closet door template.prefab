@@ -96,3 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61395c0c5433da64babfecfa3220c7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getOutClosetSFX: {fileID: 8300000, guid: 27315982a385fcd4d9635a4643c4af04, type: 3}
+  timeBeforeGettingOut: 1

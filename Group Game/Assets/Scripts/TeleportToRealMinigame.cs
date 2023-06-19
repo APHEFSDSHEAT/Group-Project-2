@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class TeleportToMinigame : MonoBehaviour //TELEPORTS PLAYER TO DESIGNATED AREA (inspector)
+public class TeleportToRealMinigame : MonoBehaviour // TELEPORTS PLAYER TO REAL MINIGAME
 {
-    [Header("assignable things")]
+    [Header("assignable things")] 
     public GameObject playerTest;
     public AudioClip soundEffect;
+    public Camera camera;
+    [SerializeField] float camSize;
     //public Animator animator;
 
     [Header("bools")]
     public bool isOpen;
 
-    [Header("variables")] 
+    [Header("variables")]
     public Vector3 minigamePosition; //16.6f, -3.94f, -2f
 
     void Start()
@@ -23,7 +24,7 @@ public class TeleportToMinigame : MonoBehaviour //TELEPORTS PLAYER TO DESIGNATED
 
     void Update()
     {
-        
+
     }
 
     public void TeleportThePlayer()
@@ -44,20 +45,22 @@ public class TeleportToMinigame : MonoBehaviour //TELEPORTS PLAYER TO DESIGNATED
             {
                 if (manager.keyCount >= 0)
                 {
-               
+
                     isOpen = true;
                     //manager.UseKey();
                     //animator.SetBool("IsOpen", isOpen);
                     AudioManager.instance.PlayClip(soundEffect);
                     Debug.Log("TeleportDoor is unlocked");
+                    camera.orthographicSize = camSize;
                     TeleportThePlayer();
                     isOpen = false;
 
                 }
             }
         }
-        
+
 
     }
 
+    //Camera cam1 = GameObject.Find("Camera").GetComponent<Camera>();
 }

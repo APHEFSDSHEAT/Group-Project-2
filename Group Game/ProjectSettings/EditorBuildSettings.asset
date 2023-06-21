@@ -24,14 +24,14 @@ EditorBuildSettings:
     path: Assets/Scenes/2-1.unity
     guid: 2e56bf90a7b0f554db8cf31aac220c23
   - enabled: 1
+    path: Assets/Scenes/3-2.unity
+    guid: bb06c7c22566bac439fd463e12064394
+  - enabled: 1
     path: Assets/Scenes/2-2.unity
     guid: d5e756a5fb8b2604ba31725069b9b9c7
   - enabled: 1
     path: Assets/Scenes/3-1.unity
     guid: b27528305c354ee47a1b1e34af5fea16
-  - enabled: 1
-    path: Assets/Scenes/3-2.unity
-    guid: bb06c7c22566bac439fd463e12064394
   - enabled: 1
     path: Assets/Scenes/CreditWinScreen.unity
     guid: 9980803b80d848747adfd1d6fd222c46

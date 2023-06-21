@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 4715921605941216117}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Mr Tie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   moveSpeed: 5
-  deathTime: 6
+  deathTime: 7
 --- !u!50 &6239043525969270309
 Rigidbody2D:
   serializedVersion: 4

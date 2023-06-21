@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadStartScreen()
     {
-        SceneManager.LoadScene("Start Screen");
+        SceneManager.LoadScene(0);
     }
 
     public void LoadWinScreen()
@@ -21,19 +21,14 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("WinScreen");
     }
 
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
     public void LoadGameScene1_1()
     {
-        SceneManager.LoadScene(1-1);
+        SceneManager.LoadScene("1-1");
     }
 
     public void LoadGameScene1_2()
     {
-        SceneManager.LoadScene(1-2);
+        SceneManager.LoadScene("1-2");
     }
 
     public void LoadGameScene1_3()
@@ -82,8 +77,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("DrownScene");
     }
 
-    public void JumpsareMrTie()
+    public void LoseScene()
     {
-        SceneManager.LoadScene("JumpscareMrTie");
+        SceneManager.LoadScene(1);
     }
 }

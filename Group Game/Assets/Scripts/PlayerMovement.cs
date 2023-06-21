@@ -145,9 +145,8 @@ public class PlayerMovement : MonoBehaviour
             }
             if (otherDamageDealer.tag == "Mr Tie")
             {
-                FindObjectOfType<SceneLoader>().JumpsareMrTie();
+                FindObjectOfType<SceneLoader>().LoseScene();
             }
-
         }
     }
 }

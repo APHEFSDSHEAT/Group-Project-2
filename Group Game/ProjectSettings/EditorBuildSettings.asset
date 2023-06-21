@@ -27,11 +27,8 @@ EditorBuildSettings:
     path: Assets/Scenes/3-2.unity
     guid: bb06c7c22566bac439fd463e12064394
   - enabled: 1
-    path: Assets/Scenes/3-3.unity
-    guid: 195460d804c43374f9363ccddd7a1ca6
-  - enabled: 1
-    path: Assets/Scenes/WinScreen.unity
-    guid: 31f475ada8d81dc4dac0b46058ea20db
+    path: Assets/Scenes/CreditWinScreen.unity
+    guid: 9980803b80d848747adfd1d6fd222c46
   - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: b61e85b2176b2624c9585c4c5036dc88

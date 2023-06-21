@@ -130,7 +130,7 @@ MonoBehaviour:
   closetAnimationPosition: {x: 3.54, y: 0.04, z: -3}
   timeBeforeGettingIn: 0
   getInClosetSFX: {fileID: 8300000, guid: 27315982a385fcd4d9635a4643c4af04, type: 3}
-  closet: {fileID: 1629772468717600307, guid: ec7932821bfa77641b4869f9eae51f27, type: 3}
+  closet: {fileID: 5160668160599940656, guid: 4be9e0bdab8892642a54d99484e2204e, type: 3}
   closetInteractionNotification: {fileID: 1046546804885795954}
 --- !u!50 &4692693471825489081
 Rigidbody2D:
